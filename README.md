@@ -86,7 +86,7 @@ Biomes checked for suspicious constant OCAR values across all decades:
 | Tropical Moist and Dry Forest | 21.6 | 22.9 | 98.4 |
 | Mangroves | 33.2 | 52.1 | 146 |
 
-> ⚠️ **WARNING:** **Large Lakes** and **Flooded Grasslands and Savannas** have zero temporal variance — physically implausible, likely missing or placeholder data.
+> **WARNING:** **Large Lakes** and **Flooded Grasslands and Savannas** have zero temporal variance - physically implausible, likely missing or placeholder data.
 > - **Included** in total burial calculations (their lake area contribution is real)
 > - **Excluded** from all temporal trend analyses and statistical tests
 
@@ -206,14 +206,14 @@ Biome-specific trends, sorted by slope (g C m⁻² yr⁻¹ per decade):
 
 → Using **Welch's ANOVA + Games-Howell** post-hoc (both robust to unequal variances).
 
-#### Standard ANOVA *(reference only — assumptions violated)*
+#### Standard ANOVA *(reference only; assumptions violated)*
 ```
              Df Sum Sq Mean Sq F value Pr(>F)    
 Biome        10  81269    8127   33.78 <2e-16 ***
 Residuals   110  26464     241                   
 ```
 
-#### Welch's ANOVA *(robust)*
+#### Welch's ANOVA
 ```
 One-way analysis of means (not assuming equal variances)
 
@@ -230,7 +230,7 @@ F = 42.618 | num df = 10.000 | denom df = 42.532 | p-value < 2.2e-16
 
 #### Games-Howell Post-Hoc (Top 10 Most Significant Pairs)
 
-*Does not assume equal variances — consistent with Welch's ANOVA.*
+*Does not assume equal variances; more consistent with Welch's ANOVA.*
 
 | Comparison | Estimate | 95% CI | p (adj.) | Sig. |
 |---|---|---|---|---|
@@ -281,7 +281,7 @@ t = 2.9348 | df = 116.56 | p-value = 0.004021
 | Deserts and Xeric Scrub | 8.16 | 10.42 | +27.8% | 0.503 | 1.000 | ❌ No |
 | Temperate Conifer Forest | 7.60 | 7.03 | −7.5% | 0.605 | 1.000 | ❌ No |
 
-> After Bonferroni correction (α = 0.05/11 = 0.0045), fewer biomes remain significant — reflecting the multiple testing burden.
+> After Bonferroni correction (α = 0.05/11 = 0.0045), fewer biomes remain significant, probably because of multiple testing burden.
 
 ---
 
@@ -333,7 +333,7 @@ Decade_num:RegionTropical    0.458      0.130    3.515
 
 ### 6.6 Correlation: Reservoir Area vs. OCAR
 
-> ⚠️ **Caveat:** Both variables trend upward with time. A positive raw correlation may reflect shared temporal trends, not a causal link.
+> **Caveat:** Both variables trend upward with time. A positive raw correlation may reflect shared temporal trends, not a causal link.
 
 #### a) Raw Spearman Correlation
 ```
@@ -347,7 +347,7 @@ rho = 0.1673 | S = 245833 | p-value = 0.0666
 rho = 0.2275 | S = 228070 | p-value = 0.0121
 ```
 
-→ The detrended correlation **remains significant** (p = 0.012), suggesting a reservoir–OCAR link beyond shared temporal trends.
+→ The detrended correlation **remains significant** (p = 0.012), could be indictating a reservoir–OCAR link beyond shared temporal trends.
 
 ---
 
@@ -442,11 +442,11 @@ The 2 suspect biomes contribute a **roughly constant ~14.2%** of total burial. B
 
 | # | Finding | Key Statistics |
 |---|---|---|
-| **1** | **OCAR Distribution** — right-skewed, dominated by low-burial biomes | Mean = 28.84, Median = 17.85, Range: 1.86–145.67 g C m⁻² yr⁻¹ |
+| **1** | **OCAR Distribution** right-skewed, dominated by low-burial biomes | Mean = 28.84, Median = 17.85, Range: 1.86–145.67 g C m⁻² yr⁻¹ |
 | **2** | **Total C Burial** increased 2.5-fold over the 20th century | 49 Tg/yr (1900) → 121 Tg/yr (2000); 133 Tg/yr incl. reservoirs |
 | **3** | **Biomes differ significantly** in OCAR | Welch's F = 42.6, p < 2.2 × 10⁻¹⁶, η² = 0.754 |
 | **4** | **Anthropocene signal:** Post-1950 OCAR is ~69% higher than Pre-1950 | t = 2.935, p = 0.004, Cohen's d = 0.52 (medium effect) |
-| **5** | **Tropical vs. Boreal divergence** — tropical slopes are ~8.6× steeper | Tropical: 0.518/decade vs. Boreal: 0.06/decade; interaction p = 0.048 |
+| **5** | **Tropical vs. Boreal divergence** tropical slopes are ~8.6× steeper | Tropical: 0.518/decade vs. Boreal: 0.06/decade; interaction p = 0.048 |
 | **6** | **Mixed-effects model** confirms significant global upward trend | Global slope: +2.728 g C m⁻² yr⁻¹ per decade |
 | **7** | **Reservoir–OCAR correlation** persists after detrending | Raw ρ = 0.167 (p = 0.067); detrended ρ = 0.228 (p = 0.012) |
 
