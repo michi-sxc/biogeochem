@@ -44,8 +44,9 @@ NOTE: Each row is a biome-decade MEAN (aggregated from 516 lake cores),
 
 WARNING: The following biomes have zero temporal variance and are treated as data artifacts:
   Large Lakes, Flooded Grasslands and Savannas 
-  These are INCLUDED in total burial calculations (their area contribution is real)
-  These are EXCLUDED from temporal trend analyses and statistical tests
+
+NOTE: Zero variance detected in: Large Lakes, Flooded Grasslands and Savannas 
+-> Action: Excluded from trend stats; included in total burial sums.
 
 Full dataset: 143 observations (13 biomes x 11 decades)
 Reliable subset: 121 observations (11 biomes x 11 decades)
@@ -66,7 +67,7 @@ Reliable subset: 121 observations (11 biomes x 11 decades)
 12        Temperate Conifer Forest     Reliable  7.29  1.77  3.76   9.47
 13                          Tundra     Reliable  3.57  1.21  1.86   5.70
 
-==== Generating Figures ====
+==== Generating Plots ====
 
 --- Total Global C Burial by Decade ---
    Decade_num Lake_Burial_Tg Reservoir_Burial_Tg Total_Burial_Tg Mean_OCAR
@@ -86,6 +87,24 @@ Lake-only increase from 1900 to 2000: 72.05 Tg C/yr
 Fold change: 2.47 
 Lake + Reservoir burial in 2000: 133.25 Tg C/yr
 Reservoir contribution in 2000: 9.1 %
+
+--- Cumulative C Burial: Trapezoidal Integration (1900-2000) ---
+  Each decade value represents a rate (Tg C/yr) for a 10-year window.
+  Cumulative burial = sum of (rate * 10 years), converted to Pg C.
+
+  Cumulative lake burial (1900-2000): 9.6 Pg C
+  Cumulative lake + reservoir burial (1900-2000): 10.04 Pg C
+  NOTE: This assumes each decadal rate is constant over its 10-year window.
+
+--- Uncertainty Propagation for Total Burial (2000) ---
+  Approach: propagate OCAR standard deviation through burial formula.
+  Burial = OCAR * Area * 1e6 / 1e12; uncertainty from SD(OCAR) per biome.
+
+  Total lake burial in 2000: 121.1 Tg C/yr
+  Combined uncertainty (1 SD, quadrature): 10.7 Tg C/yr
+  Reported as: 121.1 ± 10.7 Tg C/yr
+  NOTE: This uses temporal SD as a proxy for rate uncertainty.
+         A conservative approach; true uncertainty also includes area errors.
   The Q-Q plot shows heavy right tails, consistent with the Shapiro-Wilk
   rejection of normality. The fan shape in residuals vs. fitted suggests
   heteroscedasticity, consistent with the Levene test result.
@@ -118,6 +137,44 @@ Residual standard error: 28.8 on 119 degrees of freedom
 Multiple R-squared:  0.0836,	Adjusted R-squared:  0.0759 
 F-statistic: 10.86 on 1 and 119 DF,  p-value: 0.001298
 
+
+--- 6.1b Robustness Check: GLS with AR(1) autocorrelation structure ---
+  The pooled OLS above treats biome-decade observations as independent.
+  Within each biome, consecutive decades are temporally autocorrelated.
+  GLS with AR(1) errors corrects for this, giving conservative SE estimates.
+
+Generalized least squares fit by maximum likelihood
+  Model: OCAR ~ Decade_num 
+  Data: gc_reliable 
+       AIC      BIC    logLik
+  1162.606 1173.789 -577.3028
+
+Correlation Structure: ARMA(1,0)
+ Formula: ~Decade_num | Biome 
+ Parameter estimate(s):
+Phi1 
+   0 
+
+Coefficients:
+                Value Std.Error   t-value p-value
+(Intercept) -501.6844  161.4887 -3.106622  0.0024
+Decade_num     0.2728    0.0828  3.294829  0.0013
+
+ Correlation: 
+           (Intr)
+Decade_num -1    
+
+Standardized residuals:
+       Min         Q1        Med         Q3        Max 
+-1.4317308 -0.7040054 -0.3147449  0.3859770  3.8469704 
+
+Residual standard error: 28.56433 
+Degrees of freedom: 121 total; 119 residual
+
+  Comparison:
+  OLS slope:      0.2728 (SE = 0.0828 )
+  GLS AR(1) slope: 0.2728 (SE = 0.0828 )
+  If slopes and significance agree: OLS result is robust to autocorrelation.
 
 --- 6.2 Linear Regression by Biome (OCAR ~ Decade) ---
 
@@ -220,10 +277,10 @@ mean of x mean of y
 5                         Tundra  2.708274   4.286931       58.3 0.019129852   0.21042837            No
 6         Temperate Mixed Forest 28.613974  45.261745       58.2 0.003440283   0.03784311           Yes
 7        Boreal Forest and Taiga  9.515866  14.376622       51.1 0.021796969   0.23976666            No
-8                      Mangroves 76.422267 106.625029       39.5 0.161316291   1.00000000            No
+8                      Mangroves 76.422267 106.625029       39.5 0.161316291   1.77447920            No
 9             Montane Grasslands 13.268780  18.451305       39.1 0.021291229   0.23420352            No
-10       Deserts and Xeric Scrub  8.156277  10.422215       27.8 0.503275995   1.00000000            No
-11      Temperate Conifer Forest  7.599717   7.033337       -7.5 0.605425685   1.00000000            No
+10       Deserts and Xeric Scrub  8.156277  10.422215       27.8 0.503275995   5.53603594            No
+11      Temperate Conifer Forest  7.599717   7.033337       -7.5 0.605425685   6.65968254            No
   Note: After Bonferroni correction (α = 0.05/11 = 0.0045), fewer biomes
   remain significant, reflecting the multiple testing burden.
 
@@ -289,6 +346,66 @@ Dcd_nm:RgnT  0.771 -0.775 -0.995
   The mixed model accounts for within-region biome heterogeneity;
   check the Decade_num:RegionTropical t-value (|t| > 2 suggests significance).
 
+--- 6.5b Sensitivity: H2 re-tested excluding Mangroves ---
+  Mangroves are coastal/tidal systems, not strictly freshwater lakes.
+  Testing whether the tropical-boreal divergence holds without them.
+
+  Tropical slope (excl. Mangroves): 0.473 /decade
+  Boreal slope: 0.06 /decade
+  Ratio: 7.9 x
+
+  Interaction model (fixed effects, excl. Mangroves):
+
+Call:
+lm(formula = OCAR ~ Decade_num * Region, data = regional_nomang)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-41.504  -4.617   1.814   6.073  35.084 
+
+Coefficients:
+                            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)               -108.88026  167.72942  -0.649  0.51996   
+Decade_num                   0.05987    0.08600   0.696  0.49036   
+RegionTropical            -774.69913  237.20522  -3.266  0.00224 **
+Decade_num:RegionTropical    0.41359    0.12163   3.400  0.00154 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 12.76 on 40 degrees of freedom
+Multiple R-squared:  0.7126,	Adjusted R-squared:  0.6911 
+F-statistic: 33.06 on 3 and 40 DF,  p-value: 6.467e-11
+
+  Mixed-effects interaction (excl. Mangroves):
+Linear mixed model fit by REML ['lmerMod']
+Formula: OCAR ~ Decade_num * Region + (1 | Biome)
+   Data: regional_nomang
+
+REML criterion at convergence: 327.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2415 -0.2144 -0.0018  0.2091  2.8571 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Biome    (Intercept) 124.04   11.137  
+ Residual              94.51    9.721  
+Number of obs: 44, groups:  Biome, 4
+
+Fixed effects:
+                            Estimate Std. Error t value
+(Intercept)               -108.88026  128.06603  -0.850
+Decade_num                   0.05987    0.06554   0.913
+RegionTropical            -774.69913  181.11272  -4.277
+Decade_num:RegionTropical    0.41359    0.09269   4.462
+
+Correlation of Fixed Effects:
+            (Intr) Dcd_nm RgnTrp
+Decade_num  -0.998              
+RegionTrpcl -0.707  0.706       
+Dcd_nm:RgnT  0.706 -0.707 -0.998
+
 --- 6.6 Correlation: Reservoir Area vs. OCAR ---
   CAVEAT: Both variables trend upward with time. A positive correlation
   may reflect shared temporal trends, not a causal link.
@@ -323,7 +440,7 @@ sample estimates:
      This suggests a reservoir-OCAR link beyond shared temporal trends.
 
 --- 6.7 Mixed-Effects Model: OCAR ~ Decade + (Decade | Biome) ---
-  This is the most appropriate model for this dataset structure.
+  This is the most appropriate model for this dataset
   It accounts for: (a) biomes starting at different OCAR baselines
   (random intercept) and (b) biomes having different temporal slopes
   (random slope). This unifies the pooled regression (6.1) and the
@@ -447,6 +564,6 @@ DATASET: 143 biome-decade means (13 biomes x 11 decades),
 6. Mixed-effects model confirms significant global temporal trend
    after accounting for biome-level variation.
 
-7. Reservoir-OCAR correlation is spurious: significant raw (rho = 0.167 ) but
-   non-significant after detrending (rho = 0.228 , p = 0.012 ).
+7. Reservoir-OCAR detrended correlation is significant (rho = 0.228 , p = 0.012 ).
+   This suggests a reservoir-OCAR link BEYOND shared temporal trends.
 
