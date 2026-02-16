@@ -452,4 +452,4 @@ The 2 suspect biomes contribute a **roughly constant ~14.2%** of total burial. B
 
 ---
 
-*Generated from R console output and partly formatted by Gemini 3. Source data: [Anderson et al. (2020)](https://doi.org/10.1126/sciadv.aaw2145) via [Mendeley Data](https://data.mendeley.com/datasets/34hsd2jygc/1).*
+*Generated from R console output and partially formatted by Gemini 3. Source data: [Anderson et al. (2020)](https://doi.org/10.1126/sciadv.aaw2145) via [Mendeley Data](https://data.mendeley.com/datasets/34hsd2jygc/1).*
