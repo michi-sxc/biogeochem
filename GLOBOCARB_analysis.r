@@ -3,7 +3,7 @@
 # Biogeochemistry Seminar WS 2025/26
 # TU Bergakademie Freiberg
 # Michael Schneider
-# https://github.com/michi-sxc/biogeochem
+# https://github.com/michi-sxc/biogeochem.git
 # ==============================================================================
 # We analyzed the GLOBOCARB supplementary dataset from:
 #   Anderson, N. J., Heathcote, A. J. & Engstrom, D. R. (2020)
