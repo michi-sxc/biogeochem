@@ -62,7 +62,7 @@ Analysis of the GLOBOCARB supplementary dataset from:
 | 3rd Qu. | 1980 | 38.152 | 394,236 | 7,586 |
 | Max | 2000 | 145.666 | 1,644,866 | 54,197 |
 
-✅ **Missing values:** None across all 5 columns.
+ **Missing values:** None across all 5 columns.
 
 ---
 
@@ -103,19 +103,19 @@ Biomes ordered by mean OCAR (descending):
 
 | Rank | Biome | Data Quality | Mean | SD | Min | Max |
 |---|---|---|---|---|---|---|
-| 1 | Mangroves | ✅ Reliable | 92.90 | 33.25 | 52.13 | 145.67 |
-| 2 | Temperate Grasslands | ✅ Reliable | 56.18 | 18.28 | 24.73 | 87.83 |
-| 3 | Tropical Moist and Dry Forest | ✅ Reliable | 50.36 | 21.57 | 22.86 | 98.43 |
-| 4 | Temperate Mixed Forest | ✅ Reliable | 37.69 | 10.12 | 17.73 | 49.41 |
+| 1 | Mangroves |  Reliable | 92.90 | 33.25 | 52.13 | 145.67 |
+| 2 | Temperate Grasslands |  Reliable | 56.18 | 18.28 | 24.73 | 87.83 |
+| 3 | Tropical Moist and Dry Forest |  Reliable | 50.36 | 21.57 | 22.86 | 98.43 |
+| 4 | Temperate Mixed Forest |  Reliable | 37.69 | 10.12 | 17.73 | 49.41 |
 | 5 | Flooded Grasslands and Savannas | ⚠️ Suspect | 31.00 | 0.00 | 31.00 | 31.00 |
-| 6 | Tropical Grasslands | ✅ Reliable | 28.99 | 19.47 | 8.64 | 71.66 |
-| 7 | Mediterranean Forest | ✅ Reliable | 18.92 | 14.15 | 4.37 | 39.09 |
-| 8 | Montane Grasslands | ✅ Reliable | 16.10 | 4.05 | 10.92 | 23.95 |
-| 9 | Boreal Forest and Taiga | ✅ Reliable | 12.17 | 3.77 | 6.12 | 18.46 |
+| 6 | Tropical Grasslands |  Reliable | 28.99 | 19.47 | 8.64 | 71.66 |
+| 7 | Mediterranean Forest |  Reliable | 18.92 | 14.15 | 4.37 | 39.09 |
+| 8 | Montane Grasslands |  Reliable | 16.10 | 4.05 | 10.92 | 23.95 |
+| 9 | Boreal Forest and Taiga |  Reliable | 12.17 | 3.77 | 6.12 | 18.46 |
 | 10 | Large Lakes | ⚠️ Suspect | 10.43 | 0.00 | 10.43 | 10.43 |
-| 11 | Deserts and Xeric Scrub | ✅ Reliable | 9.39 | 4.94 | 1.91 | 18.55 |
-| 12 | Temperate Conifer Forest | ✅ Reliable | 7.29 | 1.77 | 3.76 | 9.47 |
-| 13 | Tundra | ✅ Reliable | 3.57 | 1.21 | 1.86 | 5.70 |
+| 11 | Deserts and Xeric Scrub |  Reliable | 9.39 | 4.94 | 1.91 | 18.55 |
+| 12 | Temperate Conifer Forest |  Reliable | 7.29 | 1.77 | 3.76 | 9.47 |
+| 13 | Tundra |  Reliable | 3.57 | 1.21 | 1.86 | 5.70 |
 
 *All values in g C m⁻² yr⁻¹*
 
@@ -181,17 +181,17 @@ Biome-specific trends, sorted by slope (g C m⁻² yr⁻¹ per decade):
 
 | Rank | Biome | Slope | R² | p-value | Significant? |
 |---|---|---|---|---|---|
-| 1 | Mangroves | 0.606 | 0.365 | 0.049 | ✅ Yes |
-| 2 | Tropical Moist and Dry Forest | 0.599 | 0.849 | < 0.001 | ✅ Yes |
-| 3 | Temperate Grasslands | 0.538 | 0.953 | < 0.001 | ✅ Yes |
-| 4 | Mediterranean Forest | 0.391 | 0.840 | < 0.001 | ✅ Yes |
-| 5 | Tropical Grasslands | 0.348 | 0.351 | 0.055 | ❌ No |
-| 6 | Temperate Mixed Forest | 0.297 | 0.945 | < 0.001 | ✅ Yes |
-| 7 | Boreal Forest and Taiga | 0.093 | 0.676 | 0.002 | ✅ Yes |
-| 8 | Montane Grasslands | 0.062 | 0.255 | 0.113 | ❌ No |
-| 9 | Deserts and Xeric Scrub | 0.057 | 0.144 | 0.249 | ❌ No |
-| 10 | Tundra | 0.026 | 0.522 | 0.012 | ✅ Yes |
-| 11 | Temperate Conifer Forest | −0.015 | 0.083 | 0.391 | ❌ No |
+| 1 | Mangroves | 0.606 | 0.365 | 0.049 | Yes |
+| 2 | Tropical Moist and Dry Forest | 0.599 | 0.849 | < 0.001 | Yes |
+| 3 | Temperate Grasslands | 0.538 | 0.953 | < 0.001 | Yes |
+| 4 | Mediterranean Forest | 0.391 | 0.840 | < 0.001 | Yes |
+| 5 | Tropical Grasslands | 0.348 | 0.351 | 0.055 | No |
+| 6 | Temperate Mixed Forest | 0.297 | 0.945 | < 0.001 | Yes |
+| 7 | Boreal Forest and Taiga | 0.093 | 0.676 | 0.002 | Yes |
+| 8 | Montane Grasslands | 0.062 | 0.255 | 0.113 | No |
+| 9 | Deserts and Xeric Scrub | 0.057 | 0.144 | 0.249 | No |
+| 10 | Tundra | 0.026 | 0.522 | 0.012 | Yes |
+| 11 | Temperate Conifer Forest | −0.015 | 0.083 | 0.391 | No |
 
 ---
 
@@ -201,8 +201,8 @@ Biome-specific trends, sorted by slope (g C m⁻² yr⁻¹ per decade):
 
 | Test | Statistic | p-value | Result |
 |---|---|---|---|
-| Shapiro-Wilk (normality) | W = 0.9209 | p = 2.49 × 10⁻⁶ | ❌ Normality violated |
-| Levene's test (homogeneity) | F = 7.88 | p = 1.89 × 10⁻⁹ | ❌ Equal variances violated |
+| Shapiro-Wilk (normality) | W = 0.9209 | p = 2.49 × 10⁻⁶ |  Normality violated |
+| Levene's test (homogeneity) | F = 7.88 | p = 1.89 × 10⁻⁹ |  Equal variances violated |
 
 → Using **Welch's ANOVA + Games-Howell** post-hoc (both robust to unequal variances).
 
@@ -269,17 +269,17 @@ t = 2.9348 | df = 116.56 | p-value = 0.004021
 
 | Biome | Pre-1950 Mean | Post-1950 Mean | Change (%) | p (raw) | p (Bonf.) | Sig.? |
 |---|---|---|---|---|---|---|
-| Mediterranean Forest | 8.33 | 27.74 | +233.1% | 0.0114 | 0.126 | ❌ No |
-| Tropical Grasslands | 14.67 | 40.93 | +178.9% | 0.0161 | 0.177 | ❌ No |
-| Tropical Moist and Dry Forest | 32.97 | 64.85 | +96.7% | 0.0070 | 0.077 | ❌ No |
-| Temperate Grasslands | 40.42 | 69.31 | +71.5% | 0.0018 | **0.019** | ✅ Yes |
-| Tundra | 2.71 | 4.29 | +58.3% | 0.0191 | 0.210 | ❌ No |
-| Temperate Mixed Forest | 28.61 | 45.26 | +58.2% | 0.0034 | **0.038** | ✅ Yes |
-| Boreal Forest and Taiga | 9.52 | 14.38 | +51.1% | 0.0218 | 0.240 | ❌ No |
-| Mangroves | 76.42 | 106.63 | +39.5% | 0.161 | 1.000 | ❌ No |
-| Montane Grasslands | 13.27 | 18.45 | +39.1% | 0.0213 | 0.234 | ❌ No |
-| Deserts and Xeric Scrub | 8.16 | 10.42 | +27.8% | 0.503 | 1.000 | ❌ No |
-| Temperate Conifer Forest | 7.60 | 7.03 | −7.5% | 0.605 | 1.000 | ❌ No |
+| Mediterranean Forest | 8.33 | 27.74 | +233.1% | 0.0114 | 0.126 | No |
+| Tropical Grasslands | 14.67 | 40.93 | +178.9% | 0.0161 | 0.177 | No |
+| Tropical Moist and Dry Forest | 32.97 | 64.85 | +96.7% | 0.0070 | 0.077 | No |
+| Temperate Grasslands | 40.42 | 69.31 | +71.5% | 0.0018 | **0.019** | Yes |
+| Tundra | 2.71 | 4.29 | +58.3% | 0.0191 | 0.210 | No |
+| Temperate Mixed Forest | 28.61 | 45.26 | +58.2% | 0.0034 | **0.038** | Yes |
+| Boreal Forest and Taiga | 9.52 | 14.38 | +51.1% | 0.0218 | 0.240 | No |
+| Mangroves | 76.42 | 106.63 | +39.5% | 0.161 | 1.000 | No |
+| Montane Grasslands | 13.27 | 18.45 | +39.1% | 0.0213 | 0.234 | No |
+| Deserts and Xeric Scrub | 8.16 | 10.42 | +27.8% | 0.503 | 1.000 | No |
+| Temperate Conifer Forest | 7.60 | 7.03 | −7.5% | 0.605 | 1.000 | No |
 
 > After Bonferroni correction (α = 0.05/11 = 0.0045), fewer biomes remain significant, probably because of multiple testing burden.
 
