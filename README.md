@@ -1,4 +1,4 @@
-# GLOBOCARB: Global Lake Organic Carbon Burial Rates (1900–2000)
+# Statistical analysis of GLOBOCARB: Global Lake Organic Carbon Burial Rates (1900–2000)
 
 > **Biogeochemistry Seminar WS 2025/26 · TU Bergakademie Freiberg**  
 > Michael Schneider · [`michi-sxc/biogeochem`](https://github.com/michi-sxc/biogeochem)
@@ -142,7 +142,7 @@ Biomes ordered by mean OCAR (descending):
 - Total (lake + reservoir) in 2000: **133.25 Tg C/yr**
 - Reservoir share in 2000: **9.1%**
 
-> The Q-Q plot shows heavy right tails consistent with Shapiro-Wilk rejection of normality. The fan shape in residuals vs. fitted suggests heteroscedasticity, consistent with the Levene test result.
+> The heavy right tails on the Q-Q plot confirm the non-normality flagged by the Shapiro-Wilk test. Similarly, the fan pattern in the residuals points to heteroscedasticity, which would align with the Levene test results.
 
 ---
 
@@ -154,7 +154,7 @@ Biomes ordered by mean OCAR (descending):
 
 ### 6.1 Global Linear Regression: OCAR ~ Decade
 
-> **Note:** This model pools all biomes, treating each biome-decade as independent. The low R² is expected — biome identity explains most variance. See [§6.7](#67-mixed-effects-model-ocar--decade--decade--biome) for the appropriate mixed-effects model.
+> **Note:** This model pools all biomes, treating each biome-decade as independent. The low R² is expected as biome identity explains most variance. See [§6.7](#67-mixed-effects-model-ocar--decade--decade--biome) for the appropriate mixed-effects model.
 ```
 Call:
 lm(formula = OCAR ~ Decade_num, data = gc_reliable)
