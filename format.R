@@ -31,7 +31,7 @@ local({
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 1. INTERNAL HELPERS (not exported — used by format_report)
+# 1. HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
 # ── Line classifiers ─────────────────────────────────────────────────────────
@@ -367,7 +367,7 @@ format_report <- function(
     ""
   )
   
-  # Remove NULLs from conditional header lines
+  # Remove NULLs from conditional header
   rmd_lines <- rmd_lines[!sapply(rmd_lines, is.null)]
   
   if (toc_only_first_page) {
@@ -381,7 +381,7 @@ format_report <- function(
   
   
   # ── State machine ──────────────────────────────────────────────────────────
-  # Using an environment so flush helpers can modify buffers without <<-
+  # Using environment so flush helpers can modify buffers without <<-
   env <- new.env(parent = emptyenv())
   env$text_buf  <- c()
   env$table_buf <- c()
@@ -391,7 +391,7 @@ format_report <- function(
   
   section_count <- 0
   
-  # Flush helpers (read/write via env$ — no <<- needed)
+  # Flush helpers (read/write via env$ — no <<- nec)
   flush_text <- function() {
     if (length(env$text_buf) == 0) return(character(0))
     out <- c(env$text_buf, "")
