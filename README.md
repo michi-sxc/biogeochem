@@ -39,7 +39,7 @@ Analysis of the GLOBOCARB supplementary dataset from:
 | Source lakes | 516 ²¹⁰Pb-dated sediment cores |
 | Coverage | 13 biomes × 11 decades (1900–2000) |
 
-> **Note:** Each row is a biome-decade mean aggregated from 516 lake cores — not an individual lake observation.
+> **Note:** Each row is a biome-decade mean aggregated from 516 lake cores. These aren't individual lake observations.
 
 ### Variables
 
